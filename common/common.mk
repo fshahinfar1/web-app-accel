@@ -17,7 +17,7 @@ BPF_GEN_DIR=$(KASHK_DIR)
 BPF_GEN=$(KASHK_DIR)/bpf_gen.sh
 BPF_COMPILE_SCRIPT=$(BPF_GEN_DIR)/compile_scripts/compile_bpf_source.sh
 
-$(info "output dir: ${OUTPUT}")
+# $(info "output dir: ${OUTPUT}")
 
 BPF_GENERATED_FILE=$(shell cat $(YAML) | grep out_bpf | cut -d ':' -f 2 | tr -d "[ ']" )
 BPF_BINARY=$(BPF_GENERATED_FILE:.c=.o)
@@ -46,9 +46,9 @@ bpf_load:
 	bash $(BPF_GEN_DIR)/compile_scripts/load.sh $(BPF_BINARY)
 
 bpf_run: $(BPF_BINARY)
-	@if [ -z "$(NET_IFACE)" ]; then echo "Missing the NET_IFACE"; exit 1; fi
+	@# @if [ -z "$(NET_IFACE)" ]; then echo "Missing the NET_IFACE"; exit 1; fi
 	@# TODO: check if it is xdp/skskb from the $(YAML) file
-	sudo $(BPF_GEN_DIR)/compile_scripts/loader -b $(BPF_BINARY) -i $(NET_IFACE) --xdp xdp_prog
+	sudo $(BPF_GEN_DIR)/compile_scripts/loader -b $(BPF_BINARY) --skskb verdict
 
 bpf_crun: bpf_comp bpf_run
 
