@@ -1,6 +1,8 @@
 # Web Server Accelerator
 
-My attempt to accelerate NGINX using eBPF.
+My attempt to accelerate a web server using eBPF.
+
+The accelerator logic is written targeting `BPF_GEN`
 
 # Plan
 
