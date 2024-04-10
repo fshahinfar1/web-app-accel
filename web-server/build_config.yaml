@@ -1,0 +1,8 @@
+entry: loop
+main: './web_server_accel.c'
+hook: sk_skb
+framework: poll
+sources: [ ]
+out_bpf: './build/web_server_accel.bpf.c'
+out_user: './build/web_server_accel.user.c'
+cflags: ''
