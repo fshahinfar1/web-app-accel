@@ -2,7 +2,7 @@
 
 My attempt to accelerate a web server using eBPF.
 
-The accelerator logic is written targeting `BPF_GEN`
+The accelerator logic is written for `BPF_GEN`
 
 # Plan
 
