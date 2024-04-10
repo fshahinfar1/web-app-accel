@@ -1,6 +1,6 @@
 # Web Server Accelerator
 
-My misserable attempt to accelerate NGINX using eBPF.
+My attempt to accelerate NGINX using eBPF.
 
 # Plan
 
